@@ -1,0 +1,125 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+         <link href="css/home.css" rel="stylesheet" />
+
+        <!-- <link rel="icon" type="image/png" href=""> -->
+        <!-- <script type="text/javascript" src="https://d1jlf623bx36qa.cloudfront.net/api/sketchfab-viewer-1.0.0.js"></script> -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+
+        <!-- Upload file viewer -->
+       <!--  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /> -->
+        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+	</head>
+
+	<body>
+        <div class="container">
+    		<div class="header">
+                <a class="header-title" href="javascript:document.location.reload();"><img class="svg header-logo" src="img/icon_logo.png"/>
+                IMAG3D</a>
+    		</div>
+
+           <div class="main-view">
+                <h1>Instant 3D models from any photo</h1>
+                <div class="button-selection">
+                    <button id="search-button" class="button-hover" onclick="searchClicked();">SEARCH</button>
+                    <button id="upload-button" class="button-hover" onclick="uploadClicked();">UPLOAD</button>
+                </div>
+                <div id="search-selected" class="choice-selected">
+                    <input id="search-bar" class="search-bar" type="text" name="search" placeholder="Search.." onkeydown="key_down();" required/>
+                    <br>
+                </div>
+                <div id="upload-selected" class="form choice-selected">
+                    <input type="text" id="path" class="path" value="" readonly/>
+                    <label id="upload-file" class="add-photo-btn"><img class="manila-icon" src="img/manila-icon.png"/><span><input type="file" id="myfile" name="myfile" onchange="readURL(this);" accept=".png, .jpg, .jpeg"/></span>
+                    </label>
+                </div>
+           </div>
+
+           <div id="bottom-section-search" class="bottom-section-search">
+                <div id="how-it-works" class="how-it-works">
+                    <h2>How does it work?</h2>
+                    <div class="steps">
+                        <div class="one-step">
+                            <h4>Select an Image</h4>
+                            <img class="image-step" src="img/step-banana.jpg">
+                            <p class="step-description">Search our database for a source image or upload your own. Having the subject on a simple background provides the best results.<br><br></p>
+                        </div>
+                        <div class="one-step">
+                            <h4>Instant 3D in minutes</h4>
+                            <img class="image-step" src="img/grey-banana.png">
+                            <p class="step-description">Our online service automatically analyzes the content, comparing it to thousands of other source images, and generates a 3D model in just minutes.</p>
+                        </div>
+                        <div class="one-step">
+                            <h4>Preview before you buy!</h4>
+                            <img class="image-step" src="img/yellow-banana.jpg">
+                            <p class="step-description">A preview link will be e-mailed to you so you can preview the model for free! If you like what you see, you can purchase at any time for <span class="price"> $10 USD per model. </span></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="image-search-bottom" class="image-search-bottom">
+                    <div id="image-selection" class="image-selection">
+                    </div>
+                    <div id="image-selection-form" class="image-selection-form">
+                    </div>
+                </div>
+                <div id="thank-you-message-1" class="thank-you-message" style="display:none">
+                    <h2>THANK YOU</h2>
+                    <p class="thank-you-info">Processing generally takes 5-10 minutes after which you will recieve an e-mail with a link to preview your 3D model</p>
+                    <a class="again-button-link" href="javascript:document.location.reload();"><input class="submit-button again-button" value="AGAIN?" readonly/></a><br><br><br><br><br><br>
+                </div>
+           </div>
+
+
+            <div id="bottom-section-upload" class="bottom-section-upload" style="display:none">
+                <div id="how-it-works-upload" class="how-it-works">
+                    <h2>How does it work?</h2>
+                    <div class="steps">
+                        <div class="one-step">
+                            <h4>Select an Image</h4>
+                            <img class="image-step" src="img/step-banana.jpg">
+                            <p class="step-description">Search our database for a source image or upload your own. Having the subject on a simple background provides the best results.<br><br></p>
+                        </div>
+                        <div class="one-step">
+                            <h4>Instant 3D in minutes</h4>
+                            <img class="image-step" src="img/grey-banana.png">
+                            <p class="step-description">Our online service automatically analyzes the content, comparing it to thousands of other source images, and generates a 3D model in just minutes.</p>
+                        </div>
+                        <div class="one-step">
+                            <h4>Preview before you buy!</h4>
+                            <img class="image-step" src="img/yellow-banana.jpg">
+                            <p class="step-description">A preview link will be e-mailed to you so you can preview the model for free! If you like what you see, you can purchase at any time for <span class="price"> $10 USD per model. </span></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="image-display-viewer" style="display:none">
+                    <h2>Image Uploaded</h2>
+                    <img id="image-display" class="image-display" src="#" alt="your image"/>
+                    <div id="form-viewer" class="form-viewer">
+                    <br><br>
+                    </div>
+                </div>
+                <div id="thank-you-message" class="thank-you-message" style="display:none">
+                    <h2>THANK YOU</h2>
+                    <p class="thank-you-info">Processing generally takes 5-10 minutes after which you will recieve an e-mail with a link to preview your 3D model</p>
+                    <a class="again-button-link" href="javascript:document.location.reload();"><input class="submit-button again-button" value="AGAIN?" readonly/></a>
+                    <script data-cfasync='false' type='text/javascript' src='thank_you.js'></script>
+                </div>
+               
+            </div>
+            
+        </div>
+
+       
+        <!-- <script type="text/javascript" src="js/query.js"></script> -->
+	</body>
+    <script data-cfasync='false' type='text/javascript' src='thank_you.js'></script>
+    <script type="text/javascript" src="js/query.js"></script>
+
+</html>
