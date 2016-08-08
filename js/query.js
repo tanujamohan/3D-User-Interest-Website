@@ -97,6 +97,7 @@ function isSelected(num) {
     var x = document.getElementsByClassName('image-' + num);
     x[0].style.outline = "thick solid #00cafe";
     showSurvey(num);
+    document.getElementById('scrolling-link').click();
 };
 
 function unselectAll() {

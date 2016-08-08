@@ -10,7 +10,21 @@
         <!-- <link rel="icon" type="image/png" href=""> -->
         <!-- <script type="text/javascript" src="https://d1jlf623bx36qa.cloudfront.net/api/sketchfab-viewer-1.0.0.js"></script> -->
         <link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+        <script src="js/jquery-3.1.0.min.js"></script>
+        <script>
+            $('a[href^="#"]').on('click', function(event) {
 
+                var target = $(this.getAttribute('href'));
+
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+
+            });
+        </script>
         <!-- Upload file viewer -->
        <!--  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /> -->
         <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -64,6 +78,7 @@
                     </div>
                 </div>
                 <div id="image-search-bottom" class="image-search-bottom">
+                    <a id="scrolling-link" href="#image-selection-form"></a>
                     <div id="image-selection" class="image-selection">
                     </div>
                     <div id="image-selection-form" class="image-selection-form">
