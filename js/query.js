@@ -150,5 +150,9 @@ function loaded() {
 };
 document.addEventListener('DOMContentLoaded', loaded, false);
 
+function scrollView() {
+    document.getElementById('image-selection-form').scrollIntoView(true);
+};
+
 
 
