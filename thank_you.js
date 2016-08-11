@@ -5,13 +5,13 @@ function validEmail(email) { // see:
 }
 // get all data in form and return object
 function getFormData() {
-  var myElement = document.getElementById('form-info-1');
-  if (!myElement || myElement.style.display==='none') {
+  var myElement = document.getElementById('form-info-1'); // myElement is the upload form
+  if (!myElement || document.getElementById('bottom-section-upload').style.display=='none') {
     console.log('entered 1')
-    var elements = document.getElementById("form-info").elements;
+    var elements = document.getElementById("form-info").elements; //search form
   } else {
     console.log('entered 2');
-    var elements = document.getElementById('form-info-1').elements;
+    var elements = document.getElementById('form-info-1').elements; //upload form
   }
   console.log(elements);
   var fields = Object.keys(elements).map(function(k) {
